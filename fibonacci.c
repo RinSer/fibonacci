@@ -1,5 +1,8 @@
 /**
- * Program to count the n-th Fibonacci number and print it.
+ * Program to count the Fibonacci numbers up to the n-th
+ * and print them.
+ *
+ * Designed by RinSer
  */
 
 #include <stdio.h>
@@ -7,7 +10,7 @@
 
 #define DIGITS 100000
 
-// Define a data strubture to store the F numbers
+// Define a data structure to store the F numbers
 typedef struct
 {
 	int digits[DIGITS];
@@ -81,7 +84,7 @@ digiti new_digiti()
 }
 
 /**
- * Helper function to add two digits.
+ * Helper function to add two digitis.
  * Returns data struct digiti.
  */
 
