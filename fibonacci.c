@@ -1,5 +1,5 @@
 /**
- * Program to count n-th Fibonacci number
+ * Program to count the n-th Fibonacci number and print it.
  */
 
 #include <stdio.h>
@@ -7,6 +7,7 @@
 
 #define DIGITS 100000
 
+// Define a data strubture to store the F numbers
 typedef struct
 {
 	int digits[DIGITS];
@@ -17,10 +18,11 @@ digiti fibonacci(int n, digiti* nums[]);
 digiti new_digiti();
 digiti add_digiti(digiti* n, digiti* m);
 void print_digiti(digiti n);
-void init_digiti(digiti* n);
+
 
 int main(int argc, char* argv[])
 {
+	// Receive only one command line argument
 	if (argc == 2)
 	{
 		int n = atoi(argv[1]);
@@ -37,6 +39,7 @@ int main(int argc, char* argv[])
 				numbers[i] = malloc(sizeof(digiti));
 			}			
 			*numbers[0] = new_digiti();
+			// Count the F numbers and print
 			for (int i = 1; i < n+1; i++)
 			{			
 				*numbers[i] = new_digiti();
@@ -58,22 +61,10 @@ int main(int argc, char* argv[])
 	return 0;
 }
 
-/**
- * Helper function to set all digiti digits to zero
- */
-
-void init_digiti(digiti* n)
-{
-	n = malloc(sizeof(digiti));	
-	for (int i = 0; i < DIGITS+1; i++)
-	{
-		n->digits[i] = 0;
-	}
-	n->length = 0;
-}
 
 /**
- * Helper function to initialize new digiti data struct
+ * Helper function to initialize new digiti data struct.
+ * Returns data struct digiti.
  */
 digiti new_digiti()
 {
@@ -90,7 +81,8 @@ digiti new_digiti()
 }
 
 /**
- * Helper function to add two digits
+ * Helper function to add two digits.
+ * Returns data struct digiti.
  */
 
 digiti add_digiti(digiti* n, digiti* m)
@@ -129,7 +121,8 @@ digiti add_digiti(digiti* n, digiti* m)
 }
 
 /**
- * Helper function to print digiti
+ * Helper function to print digiti.
+ * Returns nothing.
  */
 
 void print_digiti(digiti n)
@@ -143,11 +136,13 @@ void print_digiti(digiti n)
 
 /**
  * Function that counts n-th Fibonacci number recursively
+ * storing values into global array.
+ * Returns data struct digiti.
  */
 
 digiti fibonacci(int n, digiti* nums[])
 {
-	// Set first memory array values
+	// Set the first memory array values
 	nums[1]->length = 1;
 	nums[1]->digits[0] = 1;
 	nums[2]->length = 1;
